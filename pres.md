@@ -88,5 +88,13 @@ Introducing coR-ge
 Introducing coR-ge
 =====
 
-<img src="drawing.jpg" alt="Drawing" style="width: 200px;"/>
+<img src="pres-figure/flow.png" alt="Logic Flow"  align="right" style="width: 500px;"/>
+
+- ~5k lines R, Py, Sh
+- Released under GPL
+- Requires 
+ - Cluster
+ - Reference Data
+ - Causal SNPs
+ - etc.
  
