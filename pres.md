@@ -1,8 +1,9 @@
 coR-ge | Investigation of sFDR in Environments of Complex Correlation
 ========================================================
 author: Christopher Cole
-date: July 24th 2015
+date: July 29th 2015
 transition: rotate
+ Supervisor: Dr. Jo Knight
 
 Genome Wide Association Studies
 ========================================================
