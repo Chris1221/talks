@@ -88,24 +88,15 @@ Introducing coR-ge
 Introducing coR-ge
 =====
 
-<<<<<<< HEAD
-<img src="pres-figure/flow.png" alt="Logic Flow" align="right" style="width: 450px;"/>
-
-- ~ 5k lines `R`, python, `Sh`
-- Released under GPL
-- Requires
-=======
 <img src="pres-figure/flow.png" alt="Logic Flow"  align="right" style="width: 500px;"/>
 
 - ~5k lines R, Py, Sh
 - Released under GPL
-- Requires 
->>>>>>> ad55400a534b08273b9e269b403aefd39a5ba667
+- Requires
  - Cluster
  - Reference Data
  - Causal SNPs
  - etc.
-<<<<<<< HEAD
 
 Disease Model
 =====
@@ -166,8 +157,3 @@ gg <- ggplot(n, aes(x = S_TP-A_TP)) + geom_histogram(binwidth = 1) + geom_densit
 py <- plotly()
 py$ggplotly(gg, session = "knitr")
 ```
-
-
-=======
- 
->>>>>>> ad55400a534b08273b9e269b403aefd39a5ba667

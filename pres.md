@@ -88,24 +88,15 @@ Introducing coR-ge
 Introducing coR-ge
 =====
 
-<<<<<<< HEAD
-<img src="pres-figure/flow.png" alt="Logic Flow" align="right" style="width: 450px;"/>
-
-- ~ 5k lines `R`, python, `Sh`
-- Released under GPL
-- Requires
-=======
 <img src="pres-figure/flow.png" alt="Logic Flow"  align="right" style="width: 500px;"/>
 
 - ~5k lines R, Py, Sh
 - Released under GPL
-- Requires 
->>>>>>> ad55400a534b08273b9e269b403aefd39a5ba667
+- Requires
  - Cluster
  - Reference Data
  - Causal SNPs
  - etc.
-<<<<<<< HEAD
 
 Disease Model
 =====
@@ -153,9 +144,4 @@ Randomly Selected Loci
 
 
 <iframe height="600" id="igraph" scrolling="no" seamless="seamless"
-				src="https://plot.ly/~Chris1221/20" width="600" frameBorder="0"></iframe>
-
-
-=======
- 
->>>>>>> ad55400a534b08273b9e269b403aefd39a5ba667
+				src="https://plot.ly/~Chris1221/22" width="600" frameBorder="0"></iframe>
