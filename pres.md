@@ -138,10 +138,50 @@ Analysis
 - Permuted to establish trends
  - $n = 100$
 
-Randomly Selected Loci
-========
+Results
+======
+
+- https://plot.ly/~ChrisCole/58/number-of-true-positives-identified/
+- https://plot.ly/~ChrisCole/70/true-positive-improvement-with-sfdr/
+- https://plot.ly/~ChrisCole/85/difference-in-false-positives-identified/
+- https://plot.ly/~ChrisCole/40/average-difference-in-true-positives-with-maf/
+- https://plot.ly/~ChrisCole/75/false-positive-inflation-vs-pathway-enrichment/
+
+Discussion
+==========
+- We have demonstated sFDR to displaye less false positives with more true positives than aggregated FDR.
+- Even in realistic case, more $TP$, less $FP$.  
+- Inflation of $FP$ in strata is a function of pathway enrichment
+- Novel methedology requires a hard second look as a contender
+- Lends credibility to the use of sFDR in HD-GWAS
+
+Future Directions
+===========
+- Mathematical concequences of genomic dependency on multiplicity control
+ - Dr. Lei Sun
+- Specific use cases
+ - Use same reference panel and set of SNPs
+- Improve documentation of **coR-ge**
+- Larger and more complex disease models.
 
 
+Acknowledgements
+============
+- Dr. Jo Knight
+- Students / mentors from CAMH
+- Hartmut Shmieder 
+- Institute of Medical Science SURP program
+- University of Ottawa Co-op Program
+- 1000 Genomes / rOpenSci / R core team 
+ - etc.
+ 
+This presentation
+=============
 
-<iframe height="600" id="igraph" scrolling="no" seamless="seamless"
-				src="https://plot.ly/~Chris1221/22" width="600" frameBorder="0"></iframe>
+- Slides
+ - RMarkdown -> Markdown / PanDocs -> Knitr -> ioslides 
+ - MathJax / LaTeX 
+ - Hosted on github
+- Plots
+ - D3.js -> htmlwidgets -> ggplot2 / ggvis -> plot.ly -> iframes 
+ - API and server provided by plot.ly 
