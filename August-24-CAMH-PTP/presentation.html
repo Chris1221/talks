@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Visualization with R</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="generator" content="pandoc" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="stylesheet" media="all" href="filea5c2f030a5b_files/ioslides-13.5.1/fonts/fonts.css">
+
+  <link rel="stylesheet" media="all" href="filea5c2f030a5b_files/ioslides-13.5.1/theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="filea5c2f030a5b_files/ioslides-13.5.1/theme/css/phone.css">
+
+  <base target="_blank">
+
+  <script type="text/javascript">
+    var SLIDE_CONFIG = {
+      // Slide settings
+      settings: {
+                title: 'Interactive Visualization with R',
+                        subtitle: 'New Opportunities and Old Challenges',
+                useBuilds: true,
+        usePrettify: true,
+        enableSlideAreas: true,
+        enableTouch: true,
+                favIcon: 'filea5c2f030a5b_files/logo.jpeg',
+              },
+
+      // Author information
+      presenters: [
+            {
+        name:  '<a href="https://github.com/Chris1221">Christopher B. Cole</a>' ,
+        company: '',
+        gplus: '',
+        twitter: '',
+        www: '',
+        github: ''
+      },
+            ]
+    };
+  </script>
+
+  <style type="text/css">
+
+    b, strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    slides > slide {
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .auto-fadein {
+      -webkit-transition: opacity 0.6s ease-in;
+      -webkit-transition-delay: 0.4s;
+      -moz-transition: opacity 0.6s ease-in 0.4s;
+      -o-transition: opacity 0.6s ease-in 0.4s;
+      transition: opacity 0.6s ease-in 0.4s;
+      opacity: 0;
+    }
+
+    slides > slide:not(.nobackground):before {
+      font-size: 12pt;
+      content: "";
+      position: absolute;
+      bottom: 20px;
+      left: 60px;
+      background: url(filea5c2f030a5b_files/logo.jpeg) no-repeat 0 50%;
+      -webkit-background-size: 30px 30px;
+      -moz-background-size: 30px 30px;
+      -o-background-size: 30px 30px;
+      background-size: 30px 30px;
+      padding-left: 40px;
+      height: 30px;
+      line-height: 1.9;
+    }
+  </style>
+
+
+
+</head>
+
+<body style="opacity: 0">
+
+<slides>
+
+  <slide class="title-slide segue nobackground">
+        <aside class="gdbar"><img src="filea5c2f030a5b_files/logo.jpeg"></aside>
+        <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+            <p style="margin-top: 6px; margin-left: -2px;">Monday August 24th 2015 <br> Peers Teaching Peers Tutorial Series</p>
+          </hgroup>
+  </slide>
+
+<slide class=''><hgroup><h2>Outline</h2></hgroup><article  id="outline">
+
+<ol>
+<li>Introduction to Interactive Visualization</li>
+<li>Requirements</li>
+<li>Steps to Successful Visualization</li>
+<li>Examples</li>
+<li>Live Demo</li>
+</ol>
+
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>1. Intro to Interactive Visualization</h2></hgroup><article  id="intro-to-interactive-visualization">
+
+</article></slide><slide class=''><hgroup><h2>Interactive Visualization</h2></hgroup><article  id="interactive-visualization">
+
+<ul>
+<li>Explore high dimensional data
+
+<ul>
+<li>See trends in real time</li>
+</ul></li>
+<li>Better understand and manipulate data
+
+<ul>
+<li>Engage audiences and encourage participation</li>
+</ul></li>
+<li>Report, share, and publicize
+
+<ul>
+<li>Reach a wider audience with easier interpretation of figures</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Why <code>R</code>?</h2></hgroup><article  id="why-r">
+
+<ul>
+<li>Turing complete language
+
+<ul>
+<li>Anything you could ever want to do</li>
+</ul></li>
+<li>Works with existing analysis pipelines</li>
+<li>Easy conversion from regular plots
+
+<ul>
+<li><code>ggplot2</code>, etc.</li>
+</ul></li>
+<li>Easy dissemination and publication</li>
+</ul>
+
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>2. Requirements</h2></hgroup><article  id="requirements">
+
+</article></slide><slide class=''><hgroup><h2>Software</h2></hgroup><article  id="software">
+
+<ul>
+<li><code>R</code> + <code>RStudio</code>
+
+<ul>
+<li>IDE with integrated <code>html</code> viewer, output control, and so much more.</li>
+</ul></li>
+<li><code>Shiny</code> + <code>RPubs</code> + <code>GitHub</code>
+
+<ul>
+<li>Source control + Publication</li>
+</ul></li>
+<li>Markdown + RMarkdown + Pandocs + <code>Knitr</code>
+
+<ul>
+<li>Easy way to create a website with all the correct rendering</li>
+</ul></li>
+<li>Packages
+
+<ul>
+<li><code>ggvis</code>, <code>ggplot2</code>, <code>rCharts</code>, <code>htmlwidgets</code>, <code>plot.ly</code>, <code>googleVis</code>, etc&#8230;</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Concepts</h2></hgroup><article  id="concepts">
+
+<ul>
+<li>Three basic things
+
+<ul>
+<li>Web server</li>
+<li>Code</li>
+<li>Data</li>
+</ul></li>
+<li>Github repository</li>
+</ul>
+
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>3. Steps to Successful Visualization</h2></hgroup><article  id="steps-to-successful-visualization">
+
+</article></slide><slide class=''><hgroup><h2>Thought process</h2></hgroup><article  id="thought-process">
+
+<ol>
+<li>What is the message that you want to show?</li>
+<li>How do you want to show it?</li>
+<li>How can available tools help you?</li>
+<li>How do I use these tools?</li>
+<li>How do I share my research?</li>
+</ol>
+
+</article></slide><slide class=''><hgroup><h2>Practical Thinking</h2></hgroup><article  id="practical-thinking">
+
+<ol>
+<li>Get your data in line
+
+<ul>
+<li><code>tidyr</code>, <code>Excel</code>, etc.</li>
+</ul></li>
+<li>Figure out how you want to display your data
+
+<ul>
+<li>What have similar publications used?</li>
+<li>How can you improve on this?</li>
+</ul></li>
+<li>Code it
+
+<ul>
+<li><strong>BE REPRODUCIBLE</strong></li>
+<li>Save your code on <code>Github</code> etc.</li>
+</ul></li>
+<li>Share it
+
+<ul>
+<li>Learn how to show people your data</li>
+<li><code>Shiny</code> + <code>Rpubs</code> etc.</li>
+</ul></li>
+</ol>
+
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Examples</h2></hgroup><article  id="examples">
+
+</article></slide><slide class=''><hgroup><h2>ggvis</h2></hgroup><article  id="ggvis">
+
+<ul>
+<li>Updated <code>ggplot2</code> with interactive features</li>
+<li>Developed by Hadley Wickham</li>
+<li>Easy, simple syntax</li>
+<li>Almost universally usable</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>ggvis Example</h2></hgroup><article  id="ggvis-example">
+
+<p><iframe src="app4c3948f16fa32fa81327c83d0ce6d0f4/?w=&amp;__subapp__=1" width="720" height="502" class="shiny-frame"></iframe></p>
+
+</article></slide><slide class=''><hgroup><h2>ggvis Example</h2></hgroup><article  id="ggvis-example-1">
+
+<pre class = 'prettyprint lang-r'>library(ggvis)
+
+mtcars %&gt;%
+  ggvis(~wt, ~mpg) %&gt;%
+  layer_smooths(span = input_slider(0.5, 1, value = 1)) %&gt;%
+  layer_points(size := input_slider(100, 1000, value = 100))</pre>
+
+</article></slide><slide class=''><hgroup><h2>R Tips and Tricks</h2></hgroup><article  id="r-tips-and-tricks">
+
+<ul>
+<li><code>dplyr::%&gt;%</code>
+
+<ul>
+<li>Pipe operator, similar to *nux <code>|</code></li>
+<li><code>cat file.txt | wc -l</code></li>
+</ul></li>
+<li>Example
+
+<ul>
+<li><code>&quot;apple&quot; %&gt;% wash() %&gt;% cut() %&gt;% eat()</code></li>
+</ul></li>
+</ul>
+
+<pre >    food &lt;- &quot;apple&quot;
+    washed &lt;- wash(food)
+    cut_up &lt;- cut(washed)
+    eaten &lt;- eat(apple)</pre>
+
+</article></slide><slide class=''><hgroup><h2>plot.ly</h2></hgroup><article  id="plot.ly">
+
+<ul>
+<li>Startup from Montreal</li>
+<li>Simple online interface</li>
+<li>API for more complex use</li>
+<li>Fast, easy, customizable.</li>
+<li>Premium = Private</li>
+<li>Publication quality images even as static</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>plot.ly</h2></hgroup><article  id="plot.ly-1">
+
+<iframe scrolling="no" seamless="seamless" style="border:none" src="https://plot.ly/~MattSundquist/2509" width="800" height="500">
+
+</iframe>
+
+</article></slide><slide class=''><hgroup><h2>plot.ly</h2></hgroup><article  id="plot.ly-2">
+
+<iframe scrolling="no" seamless="seamless" style="border:none" src="https://plot.ly/~ChrisCole/40/average-difference-in-true-positives-with-maf/" width="800" height="500">
+
+</iframe>
+
+</article></slide><slide class=''><hgroup><h2>plot.ly</h2></hgroup><article  id="plot.ly-3">
+
+<p><code>&lt;iframe scrolling=&#39;no&#39; seamless=&#39;seamless&#39; style=&#39;border:none&#39;</code> <code>src=&#39;https://plot.ly/~MattSundquist/2509&#39; width=&#39;800&#39; height=&#39;500&#39;&gt;&lt;/iframe&gt;</code></p>
+
+</article></slide><slide class=''><hgroup><h2>Anything else really</h2></hgroup><article  id="anything-else-really">
+
+<iframe scrolling="no" seamless="seamless" style="border:none" src="https://shamiri.shinyapps.io/NRLdashboard/" width="800" height="500">
+
+</iframe>
+
+</article></slide><slide class=''><hgroup><h2>htmlwidgets</h2></hgroup><article  id="htmlwidgets">
+
+<ul>
+<li>Ramnath Vaidyanathan from McGill</li>
+<li>Port of D3.js (javascript)</li>
+<li>Suite of packages</li>
+<li>Still heavily under development</li>
+<li>Very easy to use</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>htmlwidgets</h2></hgroup><article  id="htmlwidgets-1">
+
+<p><div id="htmlwidget-9426" style="width:720px;height:432px;" class="dygraphs"></div>
+<script type="application/json" data-for="htmlwidget-9426">{"x":{"attrs":{"title":"New Haven Temperatures","labels":["year","V1"],"legend":"auto","retainDateWindow":false,"axes":{"x":{"pixelsPerLabel":50}},"showRangeSelector":true,"dateWindow":["1920-01-01T00:00:00Z","1960-01-01T00:00:00Z"],"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel"},"scale":"yearly","annotations":[],"shadings":[],"events":[],"data":[["1912-01-01T00:00:00Z","1913-01-01T00:00:00Z","1914-01-01T00:00:00Z","1915-01-01T00:00:00Z","1916-01-01T00:00:00Z","1917-01-01T00:00:00Z","1918-01-01T00:00:00Z","1919-01-01T00:00:00Z","1920-01-01T00:00:00Z","1921-01-01T00:00:00Z","1922-01-01T00:00:00Z","1923-01-01T00:00:00Z","1924-01-01T00:00:00Z","1925-01-01T00:00:00Z","1926-01-01T00:00:00Z","1927-01-01T00:00:00Z","1928-01-01T00:00:00Z","1929-01-01T00:00:00Z","1930-01-01T00:00:00Z","1931-01-01T00:00:00Z","1932-01-01T00:00:00Z","1933-01-01T00:00:00Z","1934-01-01T00:00:00Z","1935-01-01T00:00:00Z","1936-01-01T00:00:00Z","1937-01-01T00:00:00Z","1938-01-01T00:00:00Z","1939-01-01T00:00:00Z","1940-01-01T00:00:00Z","1941-01-01T00:00:00Z","1942-01-01T00:00:00Z","1943-01-01T00:00:00Z","1944-01-01T00:00:00Z","1945-01-01T00:00:00Z","1946-01-01T00:00:00Z","1947-01-01T00:00:00Z","1948-01-01T00:00:00Z","1949-01-01T00:00:00Z","1950-01-01T00:00:00Z","1951-01-01T00:00:00Z","1952-01-01T00:00:00Z","1953-01-01T00:00:00Z","1954-01-01T00:00:00Z","1955-01-01T00:00:00Z","1956-01-01T00:00:00Z","1957-01-01T00:00:00Z","1958-01-01T00:00:00Z","1959-01-01T00:00:00Z","1960-01-01T00:00:00Z","1961-01-01T00:00:00Z","1962-01-01T00:00:00Z","1963-01-01T00:00:00Z","1964-01-01T00:00:00Z","1965-01-01T00:00:00Z","1966-01-01T00:00:00Z","1967-01-01T00:00:00Z","1968-01-01T00:00:00Z","1969-01-01T00:00:00Z","1970-01-01T00:00:00Z","1971-01-01T00:00:00Z"],[49.9,52.3,49.4,51.1,49.4,47.9,49.8,50.9,49.3,51.9,50.8,49.6,49.3,50.6,48.4,50.7,50.9,50.6,51.5,52.8,51.8,51.1,49.8,50.2,50.4,51.6,51.8,50.9,48.8,51.7,51,50.6,51.7,51.5,52.1,51.3,51,54,51.4,52.7,53.1,54.6,52,52,50.9,52.6,50.2,52.6,51.6,51.9,50.5,50.9,51.7,51.4,51.7,50.8,51.9,51.8,51.9,53]]},"evals":["attrs.interactionModel"]}</script></p>
+
+</article></slide><slide class=''><hgroup><h2>htmlwidgets 2</h2></hgroup><article  id="htmlwidgets-2">
+
+<p><div id="htmlwidget-4339" style="width:720px;height:432px;" class="forceNetwork"></div>
+<script type="application/json" data-for="htmlwidget-4339">{"x":{"links":{"source":[1,2,3,3,4,5,6,7,8,9,11,11,11,11,12,13,14,15,17,18,18,19,19,19,20,20,20,20,21,21,21,21,21,22,22,22,22,22,22,23,23,23,23,23,23,23,23,23,24,24,25,25,25,26,26,26,26,27,27,27,27,27,28,28,29,29,29,30,31,31,31,31,32,33,33,34,34,35,35,35,36,36,36,36,37,37,37,37,37,38,38,38,38,38,38,39,40,41,41,42,42,42,43,43,43,44,44,45,47,48,48,48,48,49,49,50,50,51,51,51,52,52,53,54,54,54,55,55,55,55,55,55,55,55,55,55,56,56,57,57,57,58,58,58,58,58,59,59,59,59,60,60,60,61,61,61,61,61,61,62,62,62,62,62,62,62,62,63,63,63,63,63,63,63,63,64,64,64,64,64,64,64,64,64,64,65,65,65,65,65,65,65,65,65,65,66,66,66,66,66,66,66,66,66,67,68,68,68,68,68,68,69,69,69,69,69,69,69,70,70,70,70,70,70,70,70,71,71,71,71,71,71,71,71,72,72,72,73,74,74,75,75,75,75,75,75,75,76,76,76,76,76,76,76],"target":[0,0,0,2,0,0,0,0,0,0,10,3,2,0,11,11,11,11,16,16,17,16,17,18,16,17,18,19,16,17,18,19,20,16,17,18,19,20,21,16,17,18,19,20,21,22,12,11,23,11,24,23,11,24,11,16,25,11,23,25,24,26,11,27,23,27,11,23,30,11,23,27,11,11,27,11,29,11,34,29,34,35,11,29,34,35,36,11,29,34,35,36,37,11,29,25,25,24,25,41,25,24,11,26,27,28,11,28,46,47,25,27,11,26,11,49,24,49,26,11,51,39,51,51,49,26,51,49,39,54,26,11,16,25,41,48,49,55,55,41,48,55,48,27,57,11,58,55,48,57,48,58,59,48,58,60,59,57,55,55,58,59,48,57,41,61,60,59,48,62,57,58,61,60,55,55,62,48,63,58,61,60,59,57,11,63,64,48,62,58,61,60,59,57,55,64,58,59,62,65,48,63,61,60,57,25,11,24,27,48,41,25,68,11,24,27,48,41,25,69,68,11,24,27,41,58,27,69,68,70,11,48,41,25,26,27,11,48,48,73,69,68,25,48,41,70,71,64,65,66,63,62,48,58],"value":[1,8,10,6,1,1,1,1,2,1,1,3,3,5,1,1,1,1,4,4,4,4,4,4,3,3,3,4,3,3,3,3,5,3,3,3,3,4,4,3,3,3,3,4,4,4,2,9,2,7,13,1,12,4,31,1,1,17,5,5,1,1,8,1,1,1,2,1,2,3,2,1,1,2,1,3,2,3,3,2,2,2,2,1,2,2,2,2,1,2,2,2,2,2,1,1,1,2,3,2,2,1,3,1,1,3,1,2,1,2,1,1,1,3,2,1,1,9,2,2,1,1,1,2,1,1,6,12,1,1,21,19,1,2,5,4,1,1,1,1,1,7,7,6,1,4,15,5,6,2,1,4,2,2,6,2,5,1,1,9,17,13,7,2,1,6,3,5,5,6,2,4,3,2,1,5,12,5,4,10,6,2,9,1,1,5,7,3,5,5,5,2,5,1,2,3,3,1,2,2,1,1,1,1,3,5,1,1,1,1,1,6,6,1,1,2,1,1,4,4,4,1,1,1,1,1,1,2,2,2,1,1,1,1,2,1,1,2,2,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1]},"nodes":{"name":["Myriel","Napoleon","Mlle.Baptistine","Mme.Magloire","CountessdeLo","Geborand","Champtercier","Cravatte","Count","OldMan","Labarre","Valjean","Marguerite","Mme.deR","Isabeau","Gervais","Tholomyes","Listolier","Fameuil","Blacheville","Favourite","Dahlia","Zephine","Fantine","Mme.Thenardier","Thenardier","Cosette","Javert","Fauchelevent","Bamatabois","Perpetue","Simplice","Scaufflaire","Woman1","Judge","Champmathieu","Brevet","Chenildieu","Cochepaille","Pontmercy","Boulatruelle","Eponine","Anzelma","Woman2","MotherInnocent","Gribier","Jondrette","Mme.Burgon","Gavroche","Gillenormand","Magnon","Mlle.Gillenormand","Mme.Pontmercy","Mlle.Vaubois","Lt.Gillenormand","Marius","BaronessT","Mabeuf","Enjolras","Combeferre","Prouvaire","Feuilly","Courfeyrac","Bahorel","Bossuet","Joly","Grantaire","MotherPlutarch","Gueulemer","Babet","Claquesous","Montparnasse","Toussaint","Child1","Child2","Brujon","Mme.Hucheloup"],"group":[1,1,1,1,1,1,1,1,1,1,2,2,3,2,2,2,3,3,3,3,3,3,3,3,4,4,5,4,0,2,3,2,2,2,2,2,2,2,2,4,6,4,4,5,0,0,7,7,8,5,5,5,5,5,5,8,5,8,8,8,8,8,8,8,8,8,8,9,4,4,4,4,5,10,10,4,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scale.category20()","fontSize":7,"fontFamily":"serif","clickTextSize":17.5,"linkDistance":50,"linkWidth":"function(d) { return Math.sqrt(d.value); }","charge":-120,"linkColour":"#666","opacity":0.4,"zoom":false,"legend":false,"nodesize":false,"radiusCalculation":" Math.sqrt(d.nodesize)+6","bounded":false,"opacityNoHover":0,"clickAction":null}},"evals":[]}</script></p>
+
+</article></slide><slide class=''><hgroup><h2>htmlwidgets 3</h2></hgroup><article  id="htmlwidgets-3">
+
+<p><div id="htmlwidget-6396" style="width:100%;height:auto;" class="datatables"></div>
+<script type="application/json" data-for="htmlwidget-6396">{"x":{"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5,7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7,6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2,3.1,3.4,4.1,4.2,3.1,3.2,3.5,3.6,3,3.4,3.5,2.3,3.2,3.5,3.8,3,3.8,3.2,3.7,3.3,3.2,3.2,3.1,2.3,2.8,2.8,3.3,2.4,2.9,2.7,2,3,2.2,2.9,2.9,3.1,3,2.7,2.2,2.5,3.2,2.8,2.5,2.8,2.9,3,2.8,3,2.9,2.6,2.4,2.4,2.7,2.7,3,3.4,3.1,2.3,3,2.5,2.6,3,2.6,2.3,2.7,3,2.9,2.9,2.5,2.8,3.3,2.7,3,2.9,3,3,2.5,2.9,2.5,3.6,3.2,2.7,3,2.5,2.8,3.2,3,3.8,2.6,2.2,3.2,2.8,2.8,2.7,3.3,3.2,2.8,3,2.8,3,2.8,3.8,2.8,2.8,2.6,3,3.4,3.1,3,3.1,3.1,3.1,2.7,3.2,3.3,3,2.5,3,3.4,3],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4,4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1,6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.2,0.1,0.2,0.2,0.3,0.3,0.2,0.6,0.4,0.3,0.2,0.2,0.2,0.2,1.4,1.5,1.5,1.3,1.5,1.3,1.6,1,1.3,1.4,1,1.5,1,1.4,1.3,1.4,1.5,1,1.5,1.1,1.8,1.3,1.5,1.2,1.3,1.4,1.4,1.7,1.5,1,1.1,1,1.2,1.6,1.5,1.6,1.5,1.3,1.3,1.3,1.2,1.4,1.2,1,1.3,1.2,1.3,1.3,1.1,1.3,2.5,1.9,2.1,1.8,2.2,2.1,1.7,1.8,1.8,2.5,2,1.9,2.1,2,2.4,2.3,1.8,2.2,2.3,1.5,2.3,2,2,1.8,2.1,1.8,1.8,1.8,2.1,1.6,1.9,2,2.2,1.5,1.4,2.3,2.4,1.8,1.8,2.1,2.4,2.3,1.9,2.3,2.5,2.3,1.9,2,2.3,1.8],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> </th>\n      <th>Sepal.Length</th>\n      <th>Sepal.Width</th>\n      <th>Petal.Length</th>\n      <th>Petal.Width</th>\n      <th>Species</th>\n    </tr>\n  </thead>\n</table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"callback":null,"filter":"none","selection":"multiple"},"evals":[]}</script></p>
+
+</article></slide><slide class=''><hgroup><h2>googleVis</h2></hgroup><article  id="googlevis">
+
+<ul>
+<li><code>R</code> interface to Google Charts API</li>
+<li>Very easy to use</li>
+<li>Attractive</li>
+<li>Google Maps etc.</li>
+<li>Not really compatible with Shiny</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>googleVis</h2></hgroup><article  id="googlevis-1">
+
+<pre class = 'prettyprint lang-r'>plt &lt;- mark_func(CityPopularity)
+plot(plt)</pre>
+
+<!-- ComboChart generated in R 3.2.2 by googleVis 0.5.9 package -->
+
+<!-- Wed Nov 25 16:21:39 2015 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataComboChartIDa5c3a54c708 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "New York",
+450,
+200 
+],
+[
+ "Boston",
+450,
+300 
+],
+[
+ "Miami",
+450,
+400 
+],
+[
+ "Chicago",
+450,
+500 
+],
+[
+ "Los Angeles",
+450,
+600 
+],
+[
+ "Houston",
+450,
+700 
+] 
+];
+data.addColumn('string','City');
+data.addColumn('number','Mean');
+data.addColumn('number','Popularity');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartComboChartIDa5c3a54c708() {
+var data = gvisDataComboChartIDa5c3a54c708();
+var options = {};
+options["allowHtml"] = true;
+options["seriesType"] = "bars";
+options["width"] =    450;
+options["height"] =    300;
+options["title"] = "City Popularity";
+options["series"] = {0: {type:"line"}};
+
+    var chart = new google.visualization.ComboChart(
+    document.getElementById('ComboChartIDa5c3a54c708')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartComboChartIDa5c3a54c708);
+})();
+function displayChartComboChartIDa5c3a54c708() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+
+<!-- jsChart -->
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartComboChartIDa5c3a54c708"></script>
+
+<!-- divChart -->
+
+<div id="ComboChartIDa5c3a54c708" style="width: 450; height: 300;">
+</div>
+
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>5. Live demo&#8230;</h2></hgroup><article  id="live-demo...">
+
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Conclusion</h2></hgroup><article  id="conclusion">
+
+</article></slide><slide class=''><hgroup><h2>Materials</h2></hgroup><article  id="materials">
+
+<ul>
+<li>Slideshow
+
+<ul>
+<li>Code: <code>https://github.com/Chris1221/PTP_presentation_2015</code></li>
+<li>Rendered Slideshow: <a href='https://ccole.shinyapps.io/PTP_presentation' title=''>https://ccole.shinyapps.io/PTP_presentation</a></li>
+</ul></li>
+<li>Shiny Cheat Sheet: <code>http://shiny.rstudio.com/articles/cheatsheet.html</code></li>
+<li>Markdown Cheat Sheet: <code>https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet</code></li>
+<li>More Materials: <code>https://github.com/Chris1221/PTP_presentation_2015</code></li>
+</ul></article></slide>
+
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script src="filea5c2f030a5b_files/ioslides-13.5.1/js/modernizr.custom.45394.js"></script>
+<script src="filea5c2f030a5b_files/ioslides-13.5.1/js/prettify/prettify.js"></script>
+<script src="filea5c2f030a5b_files/ioslides-13.5.1/js/prettify/lang-r.js"></script>
+<script src="filea5c2f030a5b_files/ioslides-13.5.1/js/prettify/lang-yaml.js"></script>
+<script src="filea5c2f030a5b_files/ioslides-13.5.1/js/hammer.js"></script>
+<script src="filea5c2f030a5b_files/ioslides-13.5.1/js/slide-controller.js"></script>
+<script src="filea5c2f030a5b_files/ioslides-13.5.1/js/slide-deck.js"></script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!-- map slide visiblity events into shiny -->
+<script>
+  (function() {
+    if (window.jQuery) {
+       window.jQuery(document).on('slideleave', function(e) {
+         window.jQuery(e.target).trigger('hidden');
+      });
+       window.jQuery(document).on('slideenter', function(e) {
+         window.jQuery(e.target).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

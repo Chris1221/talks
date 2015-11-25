@@ -1,0 +1,244 @@
+---
+title: "Interactive Visualization with R"
+author: '[Christopher B. Cole](https://github.com/Chris1221)'
+date: "Monday August 24th 2015 <br> Peers Teaching Peers Tutorial Series"
+output:
+  ioslides_presentation:
+    kepp_html: yes
+    keep_md: yes
+    logo: logo.jpeg
+runtime: shiny
+subtitle: ' New Opportunities and Old Challenges'
+resource_files:
+- logo.jpeg
+---
+
+## Outline
+
+1. Introduction to Interactive Visualization
+2. Requirements
+3. Steps to Successful Visualization
+4. Examples
+5. Live Demo
+
+
+# 1. Intro to Interactive Visualization
+
+
+## Interactive Visualization
+
+- Explore high dimensional data
+    - See trends in real time
+- Better understand and manipulate data
+    - Engage audiences and encourage participation
+- Report, share, and publicize 
+    - Reach a wider audience with easier interpretation of figures
+
+## Why `R`?
+
+- Turing complete language
+    - Anything you could ever want to do
+- Works with existing analysis pipelines
+- Easy conversion from regular plots 
+    - `ggplot2`, etc.
+- Easy dissemination and publication
+
+# 2. Requirements
+
+## Software
+
+- `R` + `RStudio`
+    - IDE with integrated `html` viewer, output control, and so much more. 
+- `Shiny` + `RPubs` + `GitHub`
+    - Source control + Publication
+- Markdown + RMarkdown + Pandocs + `Knitr`
+    - Easy way to create a website with all the correct rendering 
+- Packages
+    - `ggvis`, `ggplot2`, `rCharts`, `htmlwidgets`, `plot.ly`, `googleVis`, etc...
+
+## Concepts
+
+- Three basic things
+    - Web server 
+    - Code 
+    - Data
+- Github repository
+
+# 3. Steps to Successful Visualization
+
+## Thought process
+
+1. What is the message that you want to show?
+2. How do you want to show it?
+3. How can available tools help you?
+4. How do I use these tools?
+5. How do I share my research?
+
+## Practical Thinking
+
+1. Get your data in line
+    - `tidyr`, `Excel`, etc.
+2. Figure out how you want to display your data
+    - What have similar publications used? 
+    - How can you improve on this?
+3. Code it
+    - **BE REPRODUCIBLE**
+    - Save your code on `Github` etc.
+4. Share it
+    - Learn how to show people your data
+    - `Shiny` + `Rpubs` etc.
+
+# Examples
+
+## ggvis
+
+- Updated `ggplot2` with interactive features
+- Developed by Hadley Wickham
+- Easy, simple syntax
+- Almost universally usable 
+
+## ggvis Example
+
+```{r, echo=FALSE}
+library(ggvis)
+
+mtcars %>%
+  ggvis(~wt, ~mpg) %>%
+  layer_smooths(span = input_slider(0.5, 1, value = 1)) %>%
+  layer_points(size := input_slider(100, 1000, value = 100))
+```
+
+## ggvis Example
+
+```{r, echo=TRUE, eval = F}
+library(ggvis)
+
+mtcars %>%
+  ggvis(~wt, ~mpg) %>%
+  layer_smooths(span = input_slider(0.5, 1, value = 1)) %>%
+  layer_points(size := input_slider(100, 1000, value = 100))
+```
+
+## R Tips and Tricks
+
+- `dplyr::%>%`
+    - Pipe operator, similar to *nux `|`
+      - `cat file.txt | wc -l`
+- Example
+    - `"apple" %>% wash() %>% cut() %>% eat()`
+
+~~~~~~~
+    food <- "apple"
+    washed <- wash(food)
+    cut_up <- cut(washed)
+    eaten <- eat(apple)
+~~~~~~~
+
+## plot.ly
+
+- Startup from Montreal
+- Simple online interface 
+- API for more complex use
+- Fast, easy, customizable. 
+- Premium = Private
+- Publication quality images even as static
+
+## plot.ly
+
+<iframe scrolling='no' seamless='seamless' style='border:none'
+src='https://plot.ly/~MattSundquist/2509' width='800' height='500'></iframe>
+
+## plot.ly
+
+<iframe scrolling='no' seamless='seamless' style='border:none'
+src='https://plot.ly/~ChrisCole/40/average-difference-in-true-positives-with-maf/' width='800' height='500'></iframe>
+
+## plot.ly
+
+`<iframe scrolling='no' seamless='seamless' style='border:none'`
+`src='https://plot.ly/~MattSundquist/2509' width='800' height='500'></iframe>`
+
+## Anything else really
+
+<iframe scrolling='no' seamless='seamless' style='border:none'
+src='https://shamiri.shinyapps.io/NRLdashboard/' width='800' height='500'></iframe>
+
+## htmlwidgets
+
+- Ramnath Vaidyanathan from McGill
+- Port of D3.js (javascript)
+- Suite of packages
+- Still heavily under development
+- Very easy to use
+
+## htmlwidgets
+
+```{r, echo = FALSE}
+library(dygraphs)
+dygraph(nhtemp, main = "New Haven Temperatures") %>% 
+  dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01"))
+```
+
+## htmlwidgets 2
+
+```{r, echo = F}
+library(networkD3)
+data(MisLinks, MisNodes)
+forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             Group = "group", opacity = 0.4)
+```
+
+## htmlwidgets 3
+
+```{r, echo = F, message = F}
+library(DT)
+datatable(iris, options = list(pageLength = 5))
+```
+
+## googleVis
+
+- `R` interface to Google Charts API
+- Very easy to use
+- Attractive
+- Google Maps etc. 
+- Not really compatible with Shiny
+
+## googleVis
+
+```{r, echo = F, message = F}
+library(googleVis)
+op <- options(gvis.plot.tag="chart")
+```
+
+```{r results='asis', tidy=TRUE, echo = F}
+
+mark_func <- function(d) {
+    d$Mean=mean(d$Popularity)
+    CC <- gvisComboChart(d, xvar='City',
+          yvar=c('Mean', 'Popularity'),
+          options=list(seriesType='bars',
+                       width=450, height=300,
+                       title='City Popularity',
+                       series='{0: {type:\"line\"}}'))
+    return(CC)
+}
+```
+
+```{r results='asis', tidy=TRUE}
+plt <- mark_func(CityPopularity)
+plot(plt)
+```  
+
+# 5. Live demo...
+
+# Conclusion
+
+## Materials
+
+- Slideshow
+    - Code: `https://github.com/Chris1221/PTP_presentation_2015`
+    - Rendered Slideshow: https://ccole.shinyapps.io/PTP_presentation
+- Shiny Cheat Sheet: `http://shiny.rstudio.com/articles/cheatsheet.html`
+- Markdown Cheat Sheet: `https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet`
+- More Materials: `https://github.com/Chris1221/PTP_presentation_2015`
